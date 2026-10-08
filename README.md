@@ -1,0 +1,1 @@
+This is my portfolio. It is still in progress a little bit as I am still adding my complete projects to the portfolio, but this is a rundown of the main functionality of the portfolio. I hope that you enjoy viewing it as much as I enjoyed making it.
