@@ -2082,6 +2082,425 @@
         .window.maximized .resize-handle {
             display: none;
         }
+
+        /* ===== CERTIFICATES APP ===== */
+        .certs-container { padding: 20px; }
+
+        .certs-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 10px 14px;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.25);
+            margin-bottom: 18px;
+        }
+
+        .certs-count {
+            color: rgba(0, 255, 0, 0.65);
+            font-size: 11px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .certs-intro {
+            padding: 18px 20px;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.25);
+            border-left: 3px solid rgb(0, 255, 0);
+            margin-bottom: 16px;
+        }
+
+        .certs-intro h1 {
+            color: rgb(0, 255, 0);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .certs-intro p {
+            color: rgba(0, 255, 0, 0.65);
+            font-size: 13px;
+            line-height: 1.65;
+            max-width: 660px;
+        }
+
+        .certs-intro-meta {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(0, 255, 0, 0.4);
+            margin-top: 12px;
+        }
+
+        .cert-groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .cert-group-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+
+        .cert-group-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgb(0, 255, 0);
+            opacity: 0.3;
+            transition: opacity 0.25s;
+        }
+
+        .cert-group-card:hover {
+            border-color: rgba(0, 255, 0, 0.6);
+            box-shadow: 0 0 24px rgba(0, 255, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .cert-group-card:hover::before { opacity: 1; }
+
+        .cert-group-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .cert-group-icon {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(0, 255, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .cert-group-count {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(0, 255, 0, 0.5);
+            border: 1px solid rgba(0, 255, 0, 0.25);
+            padding: 3px 7px;
+            white-space: nowrap;
+        }
+
+        .cert-group-name {
+            color: rgb(0, 255, 0);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .cert-group-blurb {
+            color: rgba(0, 255, 0, 0.55);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .cert-group-cta {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 11px;
+            color: rgba(0, 255, 0, 0.6);
+        }
+
+        .cert-group-header {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 16px;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.25);
+            margin-bottom: 18px;
+        }
+
+        .cert-group-header .cert-group-icon {
+            width: 46px;
+            height: 46px;
+            font-size: 21px;
+        }
+
+        .cert-group-header h2 {
+            color: rgb(0, 255, 0);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .cert-group-header p {
+            color: rgba(0, 255, 0, 0.55);
+            font-size: 12.5px;
+            margin-top: 4px;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 14px;
+        }
+
+        .cert-card {
+            display: flex;
+            flex-direction: column;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(0, 255, 0, 0.6);
+            box-shadow: 0 0 24px rgba(0, 255, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .cert-card-thumb {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .cert-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.25s, transform 0.25s;
+        }
+
+        .cert-card:hover .cert-card-thumb img { opacity: 1; transform: scale(1.03); }
+
+        .cert-thumb-fallback { font-size: 32px; opacity: 0.5; }
+
+        .cert-status {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 7px;
+            border: 1px solid;
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .cert-status.active { color: rgb(0, 255, 0); border-color: rgba(0, 255, 0, 0.6); }
+        .cert-status.inprogress { color: #ffd166; border-color: rgba(255, 209, 102, 0.6); }
+        .cert-status.expired { color: #ff6b6b; border-color: rgba(255, 107, 107, 0.6); }
+
+        .cert-card-body { padding: 12px 14px 14px; }
+
+        .cert-card-name {
+            color: rgb(0, 255, 0);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        .cert-card-issuer {
+            color: rgba(0, 255, 0, 0.6);
+            font-size: 11.5px;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        .cert-card-date {
+            color: rgba(0, 255, 0, 0.4);
+            font-size: 11px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            margin-top: 8px;
+        }
+
+        .certs-empty {
+            padding: 50px 20px;
+            text-align: center;
+            color: rgba(0, 255, 0, 0.5);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            border: 1px dashed rgba(0, 255, 0, 0.25);
+            line-height: 1.7;
+        }
+
+        .cert-detail { padding: 20px; }
+
+        .cert-detail-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .cert-detail-name {
+            color: rgb(0, 255, 0);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .cert-detail-issuer {
+            color: rgba(0, 255, 0, 0.6);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12.5px;
+            margin-top: 6px;
+        }
+
+        .cert-image-fallback {
+            padding: 50px 20px;
+            text-align: center;
+            color: rgba(0, 255, 0, 0.45);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+            word-break: break-all;
+        }
+
+        .cert-slide-viewer .slide img { cursor: zoom-in; }
+
+        .cert-slide-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(0, 255, 0, 0.45);
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            padding: 3px 9px;
+            pointer-events: none;
+        }
+
+        .cert-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .cert-meta-item {
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.15);
+            padding: 10px 12px;
+        }
+
+        .cert-meta-label {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(0, 255, 0, 0.45);
+            margin-bottom: 5px;
+        }
+
+        .cert-meta-value {
+            color: rgb(0, 255, 0);
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        .cert-copy {
+            background: none;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: rgba(0, 255, 0, 0.8);
+            font-size: 10px;
+            padding: 2px 6px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        .cert-copy:hover { background: rgba(0, 255, 0, 0.15); color: rgb(0, 255, 0); }
+
+        .cert-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .cert-skill {
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: rgba(0, 255, 0, 0.8);
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 11px;
+            padding: 4px 9px;
+        }
+
+        .cert-verify {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 10px 18px;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            color: rgb(0, 255, 0);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.25s;
+        }
+
+        .cert-verify:hover { background: rgba(0, 255, 0, 0.12); border-color: rgb(0, 255, 0); }
+
+        .cert-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200000;
+            padding: 50px;
+        }
+
+        .cert-lightbox.active { display: flex; }
+
+        .cert-lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+        }
+
+        .cert-lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            width: 40px;
+            height: 40px;
+            background: black;
+            border: 1px solid rgba(0, 255, 0, 0.4);
+            color: rgb(0, 255, 0);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cert-lightbox-close:hover { background: rgb(0, 255, 0); color: black; }
+
     </style>
 </head>
 <body>
@@ -2247,8 +2666,23 @@
                     <span>My Projects</span>
                 </div>
                 
+<!-- Certificates -->
+                <div class="desktop-icon" data-window="certificates" data-pinned="true" style="top: 325px; left: 5px;" ondblclick="openWindow('certificates')">
+                    <div class="icon-img">
+                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="7" y="6" width="34" height="24" rx="1" fill="#f5f5f5" stroke="#bdbdbd"/>
+                            <rect x="11" y="11" width="18" height="2" fill="#9e9e9e"/>
+                            <rect x="11" y="16" width="22" height="2" fill="#9e9e9e"/>
+                            <rect x="11" y="21" width="14" height="2" fill="#9e9e9e"/>
+                            <circle cx="32" cy="30" r="7" fill="#d4af37" stroke="#a8862a"/>
+                            <path fill="#d4af37" stroke="#a8862a" d="M28 36l-3 9 7-3 7 3-3-9z"/>
+                        </svg>
+                    </div>
+                    <span>Certificates</span>
+                </div>
+
                 <!-- Contact -->
-                <div class="desktop-icon" data-window="contact" data-pinned="true" style="top: 325px; left: 5px;" ondblclick="openWindow('contact')">
+                <div class="desktop-icon" data-window="contact" data-pinned="true" style="top: 405px; left: 5px;" ondblclick="openWindow('contact')">
                     <div class="icon-img">
                         <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <rect x="4" y="8" width="40" height="32" rx="2" fill="#4a90d9"/>
@@ -2342,6 +2776,12 @@
                                 <span style="font-size: 32px;">✉</span>
                                 <span>Contact</span>
                             </div>
+                            <div class="tile" onclick="openWindow('certificates')" style="background: #000; border: 1px solid rgba(0,255,0,0.3);">
+                                <span style="font-size: 32px;">🏆</span>
+                                <span>Certificates</span>
+                            </div>
+                        </div>
+                        <div class="tile-row">
                             <div class="tile tile-wide" onclick="openEdge()" style="background: #000; border: 1px solid rgba(0,255,0,0.3);">
                                 <span style="font-size: 32px;">
                                     <svg width="32" height="32" viewBox="0 0 48 48">
@@ -2413,6 +2853,17 @@
                     </svg>
                 </button>
                 
+                <button class="taskbar-icon" onclick="openWindow('certificates')" title="My Certificates">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="7" y="6" width="34" height="24" rx="1" fill="#f5f5f5" stroke="#bdbdbd"/>
+                        <rect x="11" y="11" width="18" height="2" fill="#9e9e9e"/>
+                        <rect x="11" y="16" width="22" height="2" fill="#9e9e9e"/>
+                        <rect x="11" y="21" width="14" height="2" fill="#9e9e9e"/>
+                        <circle cx="32" cy="30" r="7" fill="#d4af37" stroke="#a8862a"/>
+                        <path fill="#d4af37" stroke="#a8862a" d="M28 36l-3 9 7-3 7 3-3-9z"/>
+                    </svg>
+                </button>
+
                 <button class="taskbar-icon" onclick="openWindow('contact')" title="Contact Me">
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                         <rect x="4" y="8" width="40" height="32" rx="2" fill="#4a90d9"/>
@@ -2583,9 +3034,210 @@ const projectsData = [
         name: 'Windows Active Directory & Domain Controller',
         desc: 'Enterprise AD infrastructure setup with user/OU management',
         summary: 'Complete AD DS deployment including domain controller configuration, OU structure design, user/group creation, and Group Policy implementation.',
-        description: 'Built a complete Active Directory Domain Services infrastructure from the ground up. Promoted Windows Server to Domain Controller, created hierarchical OU structure for departmental organization, configured user accounts with proper security groups, implemented Group Policy Objects (GPOs) for centralized management, set up DNS zones for domain resolution, and established trust relationships. Configured password policies, account lockout policies, and fine-grained password policies for different OUs. Managed FSMO roles and implemented backup strategies for directory services.'
+        description: 'Built a complete Active Directory Domain Services infrastructure from the ground up. Promoted Windows Server to Domain Controller, created hierarchical OU structure for departmental organization, configured user accounts with proper security groups, implemented Group Policy Objects (GPOs) for centralized management, set up DNS zones for domain resolution, and established trust relationships. Configured password policies, account lockout policies, and fine-grained password policies for different OUs. Managed FSMO roles and implemented backup strategies for directory services, as well as created, deleted, and managed user accounts.',
+        slides: { folder: 'Top 10 Pictures for Portfolio', count: 10 }
+    },
+    {
+        id: 'trouble-ticket-simulation',
+        name: 'Trouble Ticket Simulation',
+        desc: 'IT help desk workflow with triage, troubleshooting and documented resolution',
+        summary: 'A hands-on help desk simulation covering the full ticket lifecycle — intake, triage, troubleshooting, escalation and documented resolution.',
+        description: 'Set up a simulated IT support environment to practice real-world help desk workflows. Created and managed a queue of trouble tickets representing common end-user issues such as account lockouts, printer failures, network connectivity problems, software installation requests and permission changes. Each ticket was logged with a priority level, category and affected user, then triaged based on business impact. Resolved issues by applying the appropriate fix, documenting root cause and resolution steps, and escalating tickets that required higher-level access. Built knowledge base entries for recurring issues to cut resolution time, and tracked metrics including first-response time and time-to-resolution.',
+        slides: { folder: 'Top 10 Pictures for Ticketing Lab', count: 10 }
+    },
+    {
+        id: 'malware-traffic-analysis',
+        name: 'Malware Traffic Analysis Homelab',
+        desc: 'PCAP analysis in Wireshark: IOC extraction, protocol dissection and infection chain reconstruction',
+        summary: 'Isolated homelab capture of live malware traffic, analyzed in Wireshark to reconstruct the infection chain and extract indicators of compromise.',
+        description: 'Captured traffic from a deliberately infected lab host and worked the pcap end to end in Wireshark. Identified the initial C2 beacon pattern through repeated DNS lookups and periodic HTTP POSTs to a hardcoded IP, then followed the TCP stream to recover the payload delivery URL. Used display filters to isolate the infected host from background noise, extracted the User-Agent and URI strings as IOCs, and reconstructed the timeline from the first SYN through the beaconing interval. Documented protocol anomalies including malformed headers and non-standard ports, mapped findings against the kill chain stages, and wrote up containment recommendations.',
+        slides: { folder: 'Top 10 Pictures for Malware Traffic Analysis', count: 10 }
     }
 ];
+
+// ============================================================
+// CERTIFICATES & AWARDS
+// Change CERT_FOLDER to wherever your images actually live.
+// Each cert has a `file` — save the image with that exact name.
+// status: 'active' | 'inprogress' | 'expired'
+// ============================================================
+const CERT_FOLDER = 'Certifications and Awards';
+
+const certGroups = [
+    {
+        id: 'cisco',
+        name: 'Cisco Networking Academy',
+        icon: '🌐',
+        blurb: 'Networking, hardware, operating systems and cybersecurity fundamentals through the Cisco NetAcad curriculum.',
+        certs: [
+            {
+                id: 'it-computer-support-basics',
+                name: 'IT Computer Support Basics',
+                file: 'it-computer-support-basics.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Foundational IT support course covering hardware identification, workstation setup, peripheral configuration and tier-one troubleshooting procedures.',
+                skills: ['Hardware support', 'Peripherals', 'Troubleshooting', 'Workstation setup']
+            },
+            {
+                id: 'computer-hardware-basics',
+                name: 'Computer Hardware Basics',
+                file: 'computer-hardware-basics.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Component-level study of desktop and laptop hardware — CPUs, memory, storage, power delivery, motherboards and the diagnostic process for failed parts.',
+                skills: ['Component identification', 'Storage', 'Power systems', 'Diagnostics']
+            },
+            {
+                id: 'operating-system-basics',
+                name: 'Operating System Basics',
+                file: 'operating-system-basics.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Windows and Linux operating system fundamentals including installation, file system structure, user accounts, permissions and command-line navigation.',
+                skills: ['Windows', 'Linux', 'File systems', 'Permissions', 'CLI']
+            },
+            {
+                id: 'introduction-to-cybersecurity',
+                name: 'Introduction to Cybersecurity',
+                file: 'introduction-to-cybersecurity.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Entry-level security course covering the threat landscape, common attack types, defence-in-depth principles and personal and organisational security practices.',
+                skills: ['Threat landscape', 'Defence in depth', 'Security awareness', 'Risk']
+            },
+            {
+                id: 'network-support-and-security',
+                name: 'Network Support and Security',
+                file: 'network-support-and-security.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Network operations and hardening — device configuration, connectivity troubleshooting, wireless security, access control and monitoring for anomalies.',
+                skills: ['Network troubleshooting', 'Wireless security', 'Access control', 'Monitoring']
+            },
+            {
+                id: 'networking-basics',
+                name: 'Networking Basics',
+                file: 'networking-basics.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Core networking concepts including the OSI and TCP/IP models, addressing and subnetting, switching, routing fundamentals and common protocol behaviour.',
+                skills: ['OSI model', 'TCP/IP', 'Subnetting', 'Routing', 'Switching']
+            }
+        ]
+    },
+    {
+        id: 'ibm',
+        name: 'IBM SkillsBuild',
+        icon: '🧩',
+        blurb: 'Support and security fundamentals through the IBM SkillsBuild credential track.',
+        certs: [
+            {
+                id: 'it-support-and-network-troubleshooting',
+                name: 'IT Support and Network Troubleshooting',
+                file: 'it-support-and-network-troubleshooting.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Structured troubleshooting methodology for connectivity and end-user support issues — fault isolation, layered diagnosis, escalation criteria and documented resolution.',
+                skills: ['Fault isolation', 'Connectivity', 'Escalation', 'Documentation']
+            },
+            {
+                id: 'cybersecurity-fundamentals',
+                name: 'Cybersecurity Fundamentals',
+                file: 'cybersecurity-fundamentals.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Security fundamentals covering the CIA triad, authentication and access control, malware categories, social engineering and basic incident response.',
+                skills: ['CIA triad', 'Authentication', 'Malware', 'Social engineering', 'Incident response']
+            }
+        ]
+    },
+    {
+        id: 'microsoft',
+        name: 'Microsoft Learn',
+        icon: '🪟',
+        blurb: 'Microsoft 365 administration and identity management through Microsoft Learn modules.',
+        certs: [
+            {
+                id: 'microsoft-365-and-windows',
+                name: 'Microsoft 365 and Windows',
+                file: 'microsoft-365-and-windows.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Windows client and Microsoft 365 administration — deployment, update management, device configuration profiles and the M365 service ecosystem.',
+                skills: ['Windows client', 'Microsoft 365', 'Deployment', 'Configuration profiles']
+            },
+            {
+                id: 'entra-id-and-microsoft-365',
+                name: 'Entra ID and Microsoft 365',
+                file: 'entra-id-and-microsoft-365.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Identity and access management in Microsoft Entra ID — user and group lifecycle, role assignment, conditional access and multi-factor authentication enforcement.',
+                skills: ['Entra ID', 'Conditional access', 'MFA', 'Role assignment', 'Identity lifecycle']
+            }
+        ]
+    },
+    {
+        id: 'fortinet',
+        name: 'Fortinet',
+        icon: '🛡',
+        blurb: 'Threat landscape and cyber fundamentals through the Fortinet training institute.',
+        certs: [
+            {
+                id: 'introduction-to-the-threat-landscape',
+                name: 'Introduction to the Threat Landscape',
+                file: 'introduction-to-the-threat-landscape.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Threat landscape fundamentals covering adversary motivations, common attack vectors, malware families and the security controls used to reduce exposure.',
+                skills: ['Threat actors', 'Attack vectors', 'Malware', 'Security controls']
+            }
+        ]
+    },
+    {
+        id: 'service-desk',
+        name: 'Service Desk Simulator',
+        icon: '🎧',
+        blurb: 'Simulated service desk training covering ticket intake, triage and first-line resolution.',
+        certs: [
+            {
+                id: 'first-line-support-certification',
+                name: 'First Line Support Certification',
+                file: 'first-line-support-certification.png',
+                date: '',
+                status: 'active',
+                credentialId: '',
+                verifyUrl: '',
+                summary: 'Service desk simulation covering ticket logging, priority assessment, first-line troubleshooting under SLA, customer communication and clean handoff to second line.',
+                skills: ['Ticket triage', 'SLA awareness', 'Customer service', 'First-line resolution']
+            }
+        ]
+    }
+];
+
 
 // BOOT SEQUENCE
 window.addEventListener('load', () => {
@@ -2993,13 +3645,14 @@ document.addEventListener('DOMContentLoaded', () => {
 let windowCount = 0;
 let zIndex = 100;
 const openWindows = new Map();
-const pinnedWindows = ['about', 'resume', 'projects', 'contact'];
+const pinnedWindows = ['about', 'resume', 'projects', 'certificates', 'contact'];
 
 const windowIcons = {
     recycle: '<svg viewBox="0 0 48 48" width="16" height="16"><path fill="rgba(200,220,240,0.9)" d="M14 14h20l-2 28H16z"/><path fill="#0078d4" d="M24 18l-3 5h2v4h2v-4h2l-3-5zm-5 7l-1 3 5 3 1-2-4-2-1-2zm10 0l1 3-5 3-1-2 4-2 1-2z"/></svg>',
     about: '<svg viewBox="0 0 48 48" width="16" height="16"><circle cx="24" cy="16" r="8" fill="#808080"/><path fill="#808080" d="M8 44c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v2H8v-2z"/></svg>',
     resume: '<svg viewBox="0 0 48 48" width="16" height="16"><rect x="8" y="4" width="32" height="40" fill="#c00000" rx="2"/><rect x="12" y="8" width="24" height="28" fill="#fff"/><text x="24" y="28" text-anchor="middle" fill="#c00000" font-size="10" font-weight="bold" font-family="Arial">PDF</text><path d="M8 36h32v8H8z" fill="#a00000"/></svg>',
     projects: '<svg viewBox="0 0 48 48" width="16" height="16"><path fill="#ffffff" d="M24 2C12.95 2 4 10.95 4 22c0 8.84 5.73 16.33 13.68 18.98.99.18 1.36-.43 1.36-.96 0-.47-.02-1.72-.02-3.38-5.56 1.21-6.73-2.69-6.73-2.69-.91-2.31-2.22-2.92-2.22-2.92-1.82-1.24.14-1.22.14-1.22 2.01.14 3.07 2.07 3.07 2.07 1.78 3.06 4.68 2.18 5.82 1.66.18-1.29.7-2.18 1.27-2.68-4.44-.51-9.11-2.22-9.11-9.88 0-2.18.78-3.97 2.05-5.37-.21-.51-.89-2.56.19-5.34 0 0 1.67-.54 5.48 2.05 1.59-.44 3.3-.66 5-.67 1.7.01 3.41.23 5 .67 3.8-2.59 5.47-2.05 5.47-2.05 1.09 2.78.4 4.83.2 5.34 1.28 1.4 2.05 3.19 2.05 5.37 0 7.68-4.68 9.36-9.14 9.86.72.62 1.36 1.84 1.36 3.71 0 2.68-.02 4.85-.02 5.51 0 .53.36 1.15 1.37.95C38.28 38.32 44 30.84 44 22c0-11.05-8.95-20-20-20z"/></svg>',
+    certificates: '<svg viewBox="0 0 48 48" width="16" height="16"><rect x="7" y="6" width="34" height="24" rx="1" fill="#f5f5f5" stroke="#bdbdbd"/><rect x="11" y="11" width="18" height="2" fill="#9e9e9e"/><rect x="11" y="16" width="22" height="2" fill="#9e9e9e"/><rect x="11" y="21" width="14" height="2" fill="#9e9e9e"/><circle cx="32" cy="30" r="7" fill="#d4af37" stroke="#a8862a"/><path fill="#d4af37" stroke="#a8862a" d="M28 36l-3 9 7-3 7 3-3-9z"/></svg>',
     contact: '<svg viewBox="0 0 48 48" width="16" height="16"><rect x="4" y="8" width="40" height="32" rx="2" fill="#4a90d9"/><path fill="white" d="M4 10l20 16 20-16v-2H4z" opacity="0.9"/></svg>',
     edge: '<svg viewBox="0 0 48 48" width="16" height="16"><path fill="#00ff00" d="M22.8 4.4c-9.6 0-17.5 6.8-19.2 16 .3-.2.6-.4 1-.5 1.3-.5 2.7-.8 4.2-.8 2.9 0 5.6 1.1 7.6 3 2.1 2 3.3 4.7 3.3 7.6 0 1.4-.3 2.8-.8 4.1z"/><path fill="#00cc00" d="M44 22c0-9.9-8.1-18-18-18-1.1 0-2.2.1-3.2.3 3.1 2.8 5 6.9 5 11.4 0 8.5-6.9 15.4-15.4 15.4-1.6 0-3.1-.2-4.6-.7-1.3 1.9-2.1 4.2-2.1 6.6 0 6.6 5.4 12 12 12 9.9 0 18-8.1 18-18z"/></svg>',
     cmd: '<svg viewBox="0 0 48 48" width="16" height="16"><rect x="4" y="8" width="40" height="32" rx="2" fill="#000"/><rect x="6" y="10" width="36" height="28" rx="1" fill="#000"/><text x="12" y="22" fill="#0f0" font-family="monospace" font-size="10" font-weight="bold">C:\\&gt;</text><rect x="22" y="24" width="6" height="1" fill="#0f0"/></svg>'
@@ -3308,7 +3961,13 @@ const searchableApps = [
     { id: 'about', name: 'About Me', keywords: ['about', 'me', 'info'] },
     { id: 'resume', name: 'My Resume', keywords: ['resume', 'cv', 'document'] },
     { id: 'projects', name: 'My Projects', keywords: ['projects', 'work', 'portfolio'] },
-    { id: 'contact', name: 'Contact Me', keywords: ['contact', 'email', 'message'] }
+    { id: 'certificates', name: 'Certificates', keywords: ['certificates', 'certs', 'awards', 'achievements'] },
+    { id: 'contact', name: 'Contact Me', keywords: ['contact', 'email', 'message'] },
+    { id: 'certificates', name: 'Cisco Networking Academy', keywords: ['cisco', 'networking', 'netacad'], certGroup: 'cisco' },
+    { id: 'certificates', name: 'IBM SkillsBuild', keywords: ['ibm', 'skillsbuild'], certGroup: 'ibm' },
+    { id: 'certificates', name: 'Microsoft Learn', keywords: ['microsoft', 'learn', 'entra', 'm365'], certGroup: 'microsoft' },
+    { id: 'certificates', name: 'Fortinet', keywords: ['fortinet', 'threat'], certGroup: 'fortinet' },
+    { id: 'certificates', name: 'Service Desk Simulator', keywords: ['service desk', 'helpdesk', 'ticket'], certGroup: 'service-desk' },
 ];
 
 if (searchInput) {
@@ -3347,6 +4006,9 @@ function displaySearchResults(results, query) {
             item.innerHTML = `<span>${app.name}</span>`;
             item.onclick = () => {
                 openWindow(app.id);
+                if (app.certGroup) {
+                    setTimeout(() => openCertGroup(app.certGroup), 60);
+                }
                 searchInput.value = '';
                 searchResults.classList.remove('active');
             };
@@ -3391,7 +4053,11 @@ function generateProjectsList() {
             <div style="margin-top: 30px; padding: 24px; text-align: center; background: rgba(0, 255, 0, 0.05); border: 1px dashed rgba(0, 255, 0, 0.3); border-radius: 0;">
                 <span style="font-size: 32px; display: block; margin-bottom: 10px;">🚧</span>
                 <h3 style="color: rgb(0, 255, 0); margin-bottom: 8px; font-size: 18px;">More Projects Coming Soon!</h3>
-                <p style="color: rgba(0, 255, 0, 0.7); margin: 0; font-size: 14px;">Stay tuned for additional cybersecurity and IT infrastructure projects.</p>
+                <p style="color: rgba(0, 255, 0, 0.7); margin: 0 0 12px 0; font-size: 14px;">Stay tuned for additional cybersecurity and IT infrastructure projects.</p>
+                <p style="color: rgba(0, 255, 0, 0.7); margin: 0; font-size: 14px;">
+                    Full detailed reports of each project are available on my
+                    <a href="https://github.com/josh1934" target="_blank" rel="noopener" style="color: rgb(0, 255, 0); text-decoration: underline;">GitHub page</a>.
+                </p>
             </div>
         </div>
     `;
@@ -3401,29 +4067,33 @@ function generateProjectsList() {
 function showProjectDetail(projectId) {
     const project = projectsData.find(p => p.id === projectId);
     if (!project) return;
-    
+
     const projectsWindow = openWindows.get('projects');
     if (!projectsWindow) return;
-    
+
     const contentDiv = projectsWindow.querySelector('.window-content');
     if (!contentDiv) return;
-    
-    // Generate slides 1-10 only (no video slide)
+
+    const folder = encodePath(project.slides.folder);
+    const count = project.slides.count;
+
     let slidesHtml = '';
     let dotsHtml = '';
-    
-    for (let i = 1; i <= 10; i++) {
-        // Active Directory project shows actual photos
+
+    for (let i = 1; i <= count; i++) {
+        const src = `${folder}/${encodeURIComponent(`Slide ${i}.png`)}`;
         slidesHtml += `
             <div class="slide" data-slide="${i}">
-                <img src="Top 10 Pictures for Portfolio/Slide ${i}.png" 
-                     alt="Slide ${i}" 
-                     style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                <img src="${src}"
+                     alt="${project.name} - Slide ${i}"
+                     loading="lazy"
+                     style="width: 100%; height: 100%; object-fit: contain; display: block;"
+                     onerror="showSlideFallback(this, ${i})">
             </div>
         `;
         dotsHtml += `<div class="dot-indicator" data-slide="${i}" onclick="goToSlide(${i})"></div>`;
     }
-    
+
     contentDiv.innerHTML = `
         <div class="project-detail">
             <button class="back-button" onclick="showProjectsList()">
@@ -3432,32 +4102,31 @@ function showProjectDetail(projectId) {
                 </svg>
                 Back
             </button>
-            
+
             <div class="slideshow-container" id="slideshowContainer">
                 ${slidesHtml}
-                
+
                 <button class="slideshow-nav prev" onclick="changeSlide(-1)">‹</button>
                 <button class="slideshow-nav next" onclick="changeSlide(1)">›</button>
-                
+
                 <div class="slideshow-dots">
                     ${dotsHtml}
                 </div>
             </div>
-            
+
             <div class="project-info-section">
                 <h3>Summary</h3>
                 <p>${project.summary}</p>
             </div>
-            
+
             <div class="project-info-section">
                 <h3>Description</h3>
                 <p>${project.description}</p>
             </div>
         </div>
     `;
-    
-    // Initialize slideshow
-    initSlideshow();
+
+    initSlideshow(count);
 }
 
 // File system structure - Simplified for single project
@@ -3467,26 +4136,45 @@ const fileSystem = {
         items: [
             { name: 'About Me', type: 'file', app: 'about' },
             { name: 'My Resume', type: 'file', app: 'resume' },
-            { name: 'Contact Me', type: 'file', app: 'contact' },
-            { name: 'My Projects', type: 'dir', target: 'projects' }
+            { name: 'My Projects', type: 'dir', target: 'projects' },
+            { name: 'My Certificates', type: 'file', app: 'certificates' },
+            { name: 'Contact Me', type: 'file', app: 'contact' }
         ]
     },
     projects: {
         path: 'C:\\Users\\Josh\\My Projects',
         parent: 'root',
         items: [
-            { name: 'Windows Active Directory & Domain Controller', type: 'file', app: 'projects', projectId: 'ad-dc-creation' }
+            { name: 'Windows Active Directory & Domain Controller', type: 'file', app: 'projects', projectId: 'ad-dc-creation' },
+            { name: 'Trouble Ticket Simulation', type: 'file', app: 'projects', projectId: 'trouble-ticket-simulation' }
         ]
     }
 };
 
 // NEW: Slideshow functions
 let currentSlide = 1;
-const totalSlides = 10;
+let totalSlides = 10;
 
-function initSlideshow() {
+function initSlideshow(count) {
+    totalSlides = count || 10;
     currentSlide = 1;
     showSlide(currentSlide);
+}
+
+function encodePath(path) {
+    return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+}
+
+function showSlideFallback(imgEl, slideNumber) {
+    const slide = imgEl.closest('.slide');
+    if (!slide || slide.dataset.fallback === 'true') return;
+    slide.dataset.fallback = 'true';
+    slide.innerHTML = `
+        <div class="slide-content">
+            <div class="slide-number">${String(slideNumber).padStart(2, '0')}</div>
+            <div class="slide-label">Missing: Slide ${slideNumber}.png</div>
+        </div>
+    `;
 }
 
 function showSlide(n) {
@@ -3525,6 +4213,247 @@ function showProjectsList() {
     
     contentDiv.innerHTML = generateProjectsList();
 }
+
+// ===== CERTIFICATES APP =====
+let certView = { view: 'groups', groupId: null, certId: null };
+
+function certImagePath(file) {
+    return file ? encodePath(`${CERT_FOLDER}/${file}`) : '';
+}
+
+function certStatusLabel(status) {
+    if (status === 'active') return 'Verified';
+    if (status === 'inprogress') return 'In Progress';
+    return 'Expired';
+}
+
+function certTotal() {
+    return certGroups.reduce((n, g) => n + g.certs.length, 0);
+}
+
+function certThumbFallback(img) {
+    const thumb = img.closest('.cert-card-thumb');
+    if (!thumb) return;
+    img.remove();
+    const fb = document.createElement('div');
+    fb.className = 'cert-thumb-fallback';
+    fb.textContent = '🏅';
+    thumb.appendChild(fb);
+}
+
+function generateCertGroupsList() {
+    const cards = certGroups.map(group => `
+        <div class="cert-group-card" onclick="openCertGroup('${group.id}')">
+            <div class="cert-group-top">
+                <div class="cert-group-icon">${group.icon}</div>
+                <div class="cert-group-count">${group.certs.length} ${group.certs.length === 1 ? 'Credential' : 'Credentials'}</div>
+            </div>
+            <div class="cert-group-name">${group.name}</div>
+            <div class="cert-group-blurb">${group.blurb}</div>
+            <div class="cert-group-cta">&gt; open section</div>
+        </div>
+    `).join('');
+
+    return `
+        <div class="certs-container">
+            <div class="certs-intro">
+                <h1>Certificates, Awards &amp; Badges</h1>
+                <p>This is where my certificates, awards and badges are placed. Every credential is grouped under the issuer that granted it — Cisco Networking Academy, IBM SkillsBuild, Microsoft Learn, Fortinet and the Service Desk Simulator. Open a section to see the individual credentials, then click one for the full detail, the certificate image and the skills it covers.</p>
+                <div class="certs-intro-meta">// ${certTotal()} records across ${certGroups.length} issuers</div>
+            </div>
+
+            <div class="certs-toolbar">
+                <span class="certs-count">${certTotal()} Records &middot; ${certGroups.length} Issuers</span>
+            </div>
+
+            <div class="cert-groups-grid">${cards}</div>
+        </div>
+    `;
+}
+
+function generateCertGroupView(groupId) {
+    const group = certGroups.find(g => g.id === groupId);
+    if (!group) return generateCertGroupsList();
+
+    const cards = group.certs.map(cert => `
+        <div class="cert-card" onclick="openCertDetail('${group.id}', '${cert.id}')">
+            <div class="cert-card-thumb">
+                <img src="${certImagePath(cert.file)}" alt="${cert.name}" loading="lazy" onerror="certThumbFallback(this)">
+                <span class="cert-status ${cert.status}">${certStatusLabel(cert.status)}</span>
+            </div>
+            <div class="cert-card-body">
+                <div class="cert-card-name">${cert.name}</div>
+                <div class="cert-card-issuer">${group.name}</div>
+                ${cert.date ? `<div class="cert-card-date">${cert.date}</div>` : ''}
+            </div>
+        </div>
+    `).join('');
+
+    return `
+        <div class="certs-container">
+            <button class="back-button" onclick="showCertGroups()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                All Sections
+            </button>
+
+            <div class="cert-group-header">
+                <div class="cert-group-icon">${group.icon}</div>
+                <div>
+                    <h2>${group.name}</h2>
+                    <p>${group.blurb}</p>
+                </div>
+            </div>
+
+            ${group.certs.length
+                ? `<div class="certs-grid">${cards}</div>`
+                : `<div class="certs-empty">No credentials added to this section yet.</div>`}
+        </div>
+    `;
+}
+
+function generateCertDetailView(groupId, certId) {
+    const group = certGroups.find(g => g.id === groupId);
+    const cert = group && group.certs.find(c => c.id === certId);
+    if (!group || !cert) return generateCertGroupsList();
+
+    const credentialHtml = cert.credentialId
+        ? `<div class="cert-meta-item">
+               <div class="cert-meta-label">Credential ID</div>
+               <div class="cert-meta-value">${cert.credentialId}
+                   <button class="cert-copy" onclick="copyCredential('${cert.credentialId}')">Copy</button>
+               </div>
+           </div>`
+        : '';
+
+    return `
+        <div class="cert-detail">
+            <button class="back-button" onclick="openCertGroup('${group.id}')">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Back to ${group.name}
+            </button>
+
+            <div class="cert-detail-head">
+                <div>
+                    <h1 class="cert-detail-name">${cert.name}</h1>
+                    <div class="cert-detail-issuer">${group.name}${cert.date ? ` &middot; ${cert.date}` : ''}</div>
+                </div>
+                <span class="cert-status ${cert.status}">${certStatusLabel(cert.status)}</span>
+            </div>
+
+            <div class="slideshow-container cert-slide-viewer">
+                <div class="slide active">
+                    <img src="${certImagePath(cert.file)}" alt="${cert.name} certificate"
+                         onclick="openCertLightbox(this.src)"
+                         onerror="this.parentNode.innerHTML='<div class=&quot;cert-image-fallback&quot;>Certificate image not found.<br>Expected file: ${CERT_FOLDER}/${cert.file}</div>'">
+                </div>
+                <div class="cert-slide-hint">Click image to enlarge</div>
+            </div>
+
+            <div class="cert-meta">
+                <div class="cert-meta-item">
+                    <div class="cert-meta-label">Issuer</div>
+                    <div class="cert-meta-value">${group.name}</div>
+                </div>
+                <div class="cert-meta-item">
+                    <div class="cert-meta-label">Status</div>
+                    <div class="cert-meta-value">${certStatusLabel(cert.status)}</div>
+                </div>
+                ${credentialHtml}
+            </div>
+
+            <div class="project-info-section">
+                <h3>Summary</h3>
+                <p>${cert.summary}</p>
+            </div>
+
+            <div class="project-info-section">
+                <h3>Skills Covered</h3>
+                <div class="cert-skills">
+                    ${(cert.skills || []).map(s => `<span class="cert-skill">${s}</span>`).join('')}
+                </div>
+            </div>
+
+            ${cert.verifyUrl ? `
+                <a class="cert-verify" href="${cert.verifyUrl}" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="rgb(0,255,0)">
+                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/>
+                    </svg>
+                    Verify Credential
+                </a>
+            ` : ''}
+        </div>
+    `;
+}
+
+function renderCertificates() {
+    const certWindow = openWindows.get('certificates');
+    if (!certWindow) return;
+    const contentDiv = certWindow.querySelector('.window-content');
+    if (!contentDiv) return;
+
+    if (certView.view === 'group') {
+        contentDiv.innerHTML = generateCertGroupView(certView.groupId);
+    } else if (certView.view === 'detail') {
+        contentDiv.innerHTML = generateCertDetailView(certView.groupId, certView.certId);
+    } else {
+        contentDiv.innerHTML = generateCertGroupsList();
+    }
+
+    contentDiv.scrollTop = 0;
+}
+
+function showCertGroups() {
+    certView = { view: 'groups', groupId: null, certId: null };
+    renderCertificates();
+}
+
+function openCertGroup(groupId) {
+    certView = { view: 'group', groupId, certId: null };
+    renderCertificates();
+}
+
+function openCertDetail(groupId, certId) {
+    certView = { view: 'detail', groupId, certId };
+    renderCertificates();
+}
+
+function copyCredential(text) {
+    navigator.clipboard.writeText(text).catch(() => {});
+}
+
+function ensureCertLightbox() {
+    if (document.getElementById('certLightbox')) return;
+    const box = document.createElement('div');
+    box.className = 'cert-lightbox';
+    box.id = 'certLightbox';
+    box.innerHTML = `
+        <button class="cert-lightbox-close" onclick="closeCertLightbox()" title="Close">&#10005;</button>
+        <img id="certLightboxImg" src="" alt="Certificate">
+    `;
+    box.addEventListener('click', (e) => {
+        if (e.target === box) closeCertLightbox();
+    });
+    document.body.appendChild(box);
+}
+
+function openCertLightbox(src) {
+    ensureCertLightbox();
+    document.getElementById('certLightboxImg').src = src;
+    document.getElementById('certLightbox').classList.add('active');
+}
+
+function closeCertLightbox() {
+    const box = document.getElementById('certLightbox');
+    if (box) box.classList.remove('active');
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCertLightbox();
+});
 
 // Window Content
 const windowContents = {
@@ -3565,6 +4494,10 @@ const windowContents = {
         content: `
             <iframe src="https://github.com/josh1934" class="pdf-viewer" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
         `
+    },
+    certificates: {
+        title: 'My Certificates',
+        content: generateCertGroupsList()
     },
     contact: {
         title: 'Contact Me',
