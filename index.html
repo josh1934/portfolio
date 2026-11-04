@@ -3046,12 +3046,12 @@ const projectsData = [
         slides: { folder: 'Top 10 Pictures for Ticketing Lab', count: 10 }
     },
     {
-        id: 'malware-traffic-analysis',
-        name: 'Malware Traffic Analysis Homelab',
-        desc: 'PCAP analysis in Wireshark: IOC extraction, protocol dissection and infection chain reconstruction',
-        summary: 'Isolated homelab capture of live malware traffic, analyzed in Wireshark to reconstruct the infection chain and extract indicators of compromise.',
-        description: 'Captured traffic from a deliberately infected lab host and worked the pcap end to end in Wireshark. Identified the initial C2 beacon pattern through repeated DNS lookups and periodic HTTP POSTs to a hardcoded IP, then followed the TCP stream to recover the payload delivery URL. Used display filters to isolate the infected host from background noise, extracted the User-Agent and URI strings as IOCs, and reconstructed the timeline from the first SYN through the beaconing interval. Documented protocol anomalies including malformed headers and non-standard ports, mapped findings against the kill chain stages, and wrote up containment recommendations.',
-        slides: { folder: 'Top 10 Pictures for Malware Traffic Analysis', count: 10 }
+        id: 'cisco-packet-tracer-homelab',
+        name: 'Cisco Packet Tracer Homelab',
+        desc: 'Segmented multi-site network build: VLANs, inter-VLAN routing, OSPF and ACL hardening',
+        summary: 'A simulated multi-department office network built in Packet Tracer — segmented VLANs, routed uplinks, dynamic routing and traffic filtering, all verified with live show commands.',
+        description: 'Designed and built a segmented multi-site network topology in Cisco Packet Tracer from an addressing plan upward. Created per-department VLANs on access switches, configured 802.1Q trunk links and router-on-a-stick inter-VLAN routing, then replaced static paths with OSPF between the distribution routers. Implemented DHCP pools per VLAN, NAT/PAT for outbound access, extended ACLs to isolate the guest segment from internal subnets, and port security with sticky MAC addresses on access ports. Hardened management access by restricting Telnet and configuring SSH with local user accounts, privilege levels and login banners, plus loop prevention through STP tuning. Verified every layer with ping, traceroute, CDP neighbours and interface/route tables, then documented the address scheme, VLAN matrix and troubleshooting notes for each fault found during build.',
+        slides: { folder: 'Top 10 Pictures for Cisco Packet Tracer', count: 10 }
     }
 ];
 
@@ -4146,7 +4146,8 @@ const fileSystem = {
         parent: 'root',
         items: [
             { name: 'Windows Active Directory & Domain Controller', type: 'file', app: 'projects', projectId: 'ad-dc-creation' },
-            { name: 'Trouble Ticket Simulation', type: 'file', app: 'projects', projectId: 'trouble-ticket-simulation' }
+            { name: 'Trouble Ticket Simulation', type: 'file', app: 'projects', projectId: 'trouble-ticket-simulation' },
+            { name: 'Cisco Packet Tracer Homelab', type: 'file', app: 'projects', projectId: 'cisco-packet-tracer-homelab' }
         ]
     }
 };
